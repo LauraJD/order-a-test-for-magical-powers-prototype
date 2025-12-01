@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% from "panel/macro.njk" import panel %}
+{% from "summary-list/macro.njk" import summaryList %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {{ panel({
+        titleText: "Application complete",
+        text: "We have received your magical powers tesk kit application"
+      }) }}
+
+      <h2 class="nhsuk-heading-m">What happens next</h2>
+<p> If your test is successful you will receive your licence to practice magic within 5 working days.</p>
+      
+
+
+
+      <p>
+        <a href="#">Tell us about your experience using this service</a>
+      </p>
+
+    </div>
+  </div>
+{% endblock %}
