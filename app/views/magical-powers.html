@@ -4,6 +4,8 @@
 {% from "radios/macro.njk" import radios %}
 
 {% set mainClasses = "nhsuk-main-wrapper--s" %}
+{% from "breadcrumb/macro.njk" import breadcrumb %}
+
 
 {% block beforeContent %}
   {{ backLink({
@@ -12,9 +14,13 @@
   }) }}
 {% endblock %}
 
+
+
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+
+    
       <form action="/magical-powers-answers" method="post" novalidate>
 
         {{ radios({
@@ -53,7 +59,22 @@
         {{ button({
           text: "Continue"
         }) }}
+{% from "details/macro.njk" import details %}
 
+{% set dummyNhsNumber = "999 123 4567" %}
+
+{% call details({
+  summaryText: "What if you have spontaneously combusted"
+}) %}
+  <p>Don't worry, you're magic you can re-appear in 3 easy steps</p>
+  <ol>
+    <li>Wave your magic wand</li>
+    <li>Say abracadabra</li>
+    <li>Eat a frog</li>
+
+  </ol>
+  <p>Ask your GP surgery for help if you cannot find your NHS number.</p>
+{% endcall %}
       </form>
     </div>
   </div>
