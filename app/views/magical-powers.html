@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+{% from "back-link/macro.njk" import backLink %}
+{% from "button/macro.njk" import button %}
+{% from "radios/macro.njk" import radios %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "#",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="/form-handler" method="post" novalidate>
+
+        {{ radios({
+          name: "magicTricks",
+          fieldset: {
+            legend: {
+              text: "What sort of magic tricks have you got up to?",
+              isPageHeading: true,
+              classes: "nhsuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: 'This is important.'
+          },
+          items: [
+            {
+              value: "Neighbour in half",
+              text: "I sawed my neighbour in half"
+            },
+            {
+              value: "Levitated granny",
+              text: "I levitated my granny"
+            },
+            {
+              value: "Disappeared the cat",
+              text: "I disappeared the cat"
+            },
+            {
+              value: "northern-ireland",
+              text: "Northern Ireland"
+            }
+          ]
+        }) }}
+
+        {{ button({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
