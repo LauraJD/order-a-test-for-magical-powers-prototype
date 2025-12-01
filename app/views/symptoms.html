@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% from "back-link/macro.njk" import backLink %}
+{% from "button/macro.njk" import button %}
+{% from "radios/macro.njk" import radios %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "/magical-powers",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="/form-handler" method="post" novalidate>
+
+        {% from "textarea/macro.njk" import textarea %}
+
+          {{ characterCount({
+            name: "example",
+            id: "example",
+            maxlength: 200,
+            label: {
+              text: "Can you provide more details about your 'so-called' magical powers?",
+              classes: "nhsuk-label--l",
+              isPageHeading: true
+            },
+            hint: {
+              text: "For example, are you any good at card tricks?"
+            }
+          }) }}
+
+        {{ button({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
