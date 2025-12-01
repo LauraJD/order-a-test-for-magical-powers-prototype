@@ -17,6 +17,9 @@ router.post("/magical-powers-answers", (req, res) => {
   } else if (magicTricks === "I levitated my granny") {
     // Send user to a page where they can find their NHS number
     res.redirect("/symptoms")
+  } else if (magicTricks === "I disappeared the cat") {
+    // Send user to a page where they can find their NHS number
+    res.redirect("/symptoms")
   } else if (magicTricks === "I haven't done anything yet") {
     // Send user to a page where they can find their NHS number
     res.redirect("/ineligible")

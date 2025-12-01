@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+{% from "back-link/macro.njk" import backLink %}
+{% from "button/macro.njk" import button %}
+{% from "radios/macro.njk" import radios %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "/symptoms",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="/check-answers" method="post" novalidate>
+
+        {% from "date-input/macro.njk" import dateInput %}
+<H1>Your first magic trick</H1>
+{% from "warning-callout/macro.njk" import warningCallout %}
+
+{{ warningCallout({
+  heading: "Proper magic",
+  text: "This is not silly magic like cards up your sleeves."
+}) }}
+
+{{ dateInput({
+  id: "date-of-trick",
+  namePrefix: "dateOfTrick",
+  values: data.dateOfTrick,
+  fieldset: {
+    legend: {
+      text: "Enter the date of your first magic trick",
+      size: "m",
+      isPageHeading: false
+    }
+  },
+  hint: {
+    text: "For example, 15 3 1984"
+  },
+  items: [
+    {
+      name: "day",
+      classes: "nhsuk-input--width-2"
+    },
+    {
+      name: "month",
+      classes: "nhsuk-input--width-2"
+    },
+    {
+      name: "year",
+      classes: "nhsuk-input--width-4"
+    }
+  ]
+}) }}
+
+        {{ button({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

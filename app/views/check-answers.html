@@ -47,9 +47,27 @@
                   visuallyHiddenText: "date of birth"
                 }
               ]
+              
             }
-          }
-      
+          },
+          {
+            key: {
+              text: "Date of first magic trick"
+            },
+            value: {
+              html: data.dateOfTrick.day + " " + data.dateOfTrick.month + " " + data.dateOfTrick.year
+            },
+            actions: {
+              items: [
+                {
+                  href: "/date",
+                  text: "Change",
+                  visuallyHiddenText: "date of birth"
+                }
+              ]
+              
+            }
+          }      
         ]
       }) }}
 
